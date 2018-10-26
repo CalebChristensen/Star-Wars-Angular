@@ -8,8 +8,8 @@ export class ShipsService {
 
   constructor(private http: HttpClient) { }
 
-  getShips() {
-    return this.http.get('https://swapi.co/api/starships/')
+  getShips(order66) {
+    return this.http.get(`https://swapi.co/api/starships/?search=${order66}`)
   }
 
 }

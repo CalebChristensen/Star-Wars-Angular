@@ -1,9 +1,59 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div class="jumbo" style="text-align:center">
   <img width="300" alt="Angular Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Star_wars2.svg/1200px-Star_wars2.svg.png">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <app-inputs></app-inputs>
+  <form [formGroup]="myForm" (ngSubmit)='clickIt()'>
+    Value: {{ myForm.value | json}}
+    <hr>
+    <select class="dropDown" formControlName="jediLies">
+      <option value=""></option>
+      <option value="films">Films</option>
+      <option value="people">People</option>
+      <option value="ships">Ships</option>
+    </select>
+    <input matInput type="text" formControlName="order66" class="searchBar">
+    <button>Submit</button>
+  </form>
+  <div *ngIf='midichlorians'>
+    <div *ngFor='let annie of midichlorians.results'>
+      <div class="card">
+        <div class="cardContainer">
+          <h3>{{ annie.title }}</h3>
+          <p>{{ annie.epidsoe_id }}</p>
+          <p>{{ annie.opening_crawl }}</p>
+          <p>{{ annie.director }}</p>
+          <p>{{ annie.producer }}</p>
+          <p>{{ annie.release_date }}</p>
+        </div>
+      </div>
+      <div class="card2">
+        <div class="cardContainer2">
+          <h3>{{ annie.name }}</h3>
+          <p>{{ annie.height }}</p>
+          <p>{{ annie.mass }}</p>
+          <p>{{ annie.hair_color }}</p>
+          <p>{{ annie.skin_color }}</p>
+          <p>{{ annie.birth_year }}</p>
+          <p>{{ annie.gender }}</p>
+        </div>
+      </div>
+      <div class="card3">
+        <div class="cardContainer3">
+          <p>{{ annie.model }}</p>
+          <p>{{ annie.manufacturer }}</p>
+          <p>{{ annie.cost_in_credits }}</p>
+          <p>{{ annie.length }}</p>
+          <p>{{ annie.max_atmosphering_speed }}</p>
+          <p>{{ annie.crew }}</p>
+          <p>{{ annie.passengers }}</p>
+          <p>{{ annie.cargo_capacity }}</p>
+          <p>{{ annie.consumables }}</p>
+          <p>{{ annie.hyperdrive_rating }}</p>
+          <p>{{ annie.MGLT }}</p>
+          <p>{{ annie.starship_class }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-

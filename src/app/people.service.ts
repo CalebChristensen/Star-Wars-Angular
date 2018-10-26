@@ -8,8 +8,8 @@ export class PeopleService {
 
   constructor(private http: HttpClient) { }
 
-  getPeople() {
-    return this.http.get('https://swapi.co/api/people/')
+  getPeople(order66) {
+    return this.http.get(`https://swapi.co/api/people/?search=${order66}`)
   }
 
 }
